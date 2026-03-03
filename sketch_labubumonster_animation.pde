@@ -1,7 +1,7 @@
 int labubuX;
 int labubuAngle;
 color pink = color(250, 209, 220);
-color green = #A6E869;
+color purple = color(227,199,232);
 
 void setup() {
   size(600, 600,P2D);
@@ -10,7 +10,10 @@ void setup() {
 
 void draw() {
   background(217, 247, 247);
-  labubu(labubuX,300,labubuAngle, green);
+  labubu(labubuX,300,labubuAngle,pink);
+  if (labubuX>300) {
+    labubu(labubuX,300,labubuAngle,purple);
+  }
   labubuX=labubuX+5;
   labubuAngle=labubuAngle+1;
   if (labubuX>1000) {
@@ -26,12 +29,12 @@ void draw() {
   triangle(525, 145, 473, 85, 577, 85);
 }
 
-void labubu(int x, int y,int angle, color c) {
+void labubu(int x, int y,int angle,color a) {
   pushMatrix();
   translate(x,y);
   rotate(radians(angle));
-  scale(0.5);
-  fill(c);
+  scale(0.7);
+  fill(a);
   //body
   stroke(0);
   triangle(-135, 180, -100, 180, -110, 60);
@@ -55,7 +58,7 @@ void labubu(int x, int y,int angle, color c) {
   ellipse(80, 240, 70, 80);
 
   // arms
-  fill(250, 209, 220);
+  fill(a);
   ellipse(-90, 110, 80, 130);
   ellipse(90, 110, 80, 130);
   fill(247, 232, 190);
@@ -63,13 +66,13 @@ void labubu(int x, int y,int angle, color c) {
   ellipse(90, 160, 20, 40);
 
   // ears
-  fill(250, 209, 220);
+  fill(a);
   ellipse(-50, -175, 90, 240);
   ellipse(50, -175, 90, 240);
   fill(247, 232, 190);
   ellipse(-50, -175, 70, 200);
   ellipse(50, -175, 70, 200);
-  fill(250, 209, 220);
+  fill(a);
   ellipse(-50, -175, 20, 70);
   ellipse(50, -175, 20, 70);
 
@@ -78,7 +81,7 @@ void labubu(int x, int y,int angle, color c) {
   fill(247, 232, 190);
   ellipse(0, -30, 220, 170);
   stroke(250, 209, 220);
-  fill(250, 209, 220);
+  fill(a);
   ellipse(0, -125, 140, 60);
   stroke(0);
   fill(188, 128, 68);
